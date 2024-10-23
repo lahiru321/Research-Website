@@ -1,0 +1,702 @@
+/* General styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    background-color: #f5f5f5;
+    padding-top: 60px; /* Space for fixed navbar */
+}
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    padding-top: 60px; /* Space for fixed navbar */
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger {
+    display: none; /* Hidden by default */
+    font-size: 1.8em; /* Increase size */
+    color: #ffffff;
+    cursor: pointer; /* Pointer cursor */
+}
+/* Logo styles */
+.logo img {
+    width: 150px; /* Set a fixed width for the logo */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 50px; /* Limit maximum height to ensure it fits well in the navbar */
+    transition: transform 0.3s ease;
+    border-radius: 7px; /* Transition for hover effect */
+}
+
+.logo img:hover {
+    transform: scale(1.05); /* Slightly enlarge the logo on hover */
+}
+
+.nav-links {
+    list-style: none;
+    margin-right: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 400; /* Normal weight for links */
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links by default */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute; /* Position links absolutely */
+        top: 60px; /* Below navbar */
+        left: 0;
+        width: 100%; /* Full width */
+        background-color: rgba(51, 51, 51, 0.9); /* Slightly darker */
+        z-index: 999; /* Ensure it is above content */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show links when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0; /* Space between links */
+        text-align: center; /* Center align */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-image: url('images/hero.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ff6f61;
+    opacity: 0; /* Start hidden */
+    animation: fadeIn 1s forwards; /* Fade-in animation */
+}
+
+.hero-title {
+    font-size: 2.5em;
+    animation: slideInFromLeft 1s forwards; /* Slide-in animation */
+    opacity: 10; /* Start hidden */
+    animation-delay: 0.3s; /* Delay for effect */
+}
+
+.hero-description {
+    font-size: 1.3em;
+    color: #ffffff;
+    animation: slideInFromRight 1s forwards; /* Slide-in animation */
+    opacity: 0; /* Start hidden */
+    animation-delay: 0.5s; /* Delay for effect */
+}
+
+.cta-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    opacity: 0; /* Start hidden */
+    animation: fadeIn 1s forwards; /* Fade-in animation */
+    animation-delay: 0.7s; /* Delay for effect */
+}
+
+.cta-btn:hover{
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Fade in to full visibility */
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%); /* Start from the left */
+        opacity: 0; /* Start hidden */
+    }
+    to {
+        transform: translateX(0); /* End at normal position */
+        opacity: 1; /* Fade in */
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%); /* Start from the right */
+        opacity: 0; /* Start hidden */
+    }
+    to {
+        transform: translateX(0); /* End at normal position */
+        opacity: 1; /* Fade in */
+    }
+}
+
+/* Project Scope Section */
+.project-scope {
+    background-color: #f9f9f9; /* Light background */
+    padding: 60px 20px; /* Padding around the section */
+    text-align: center;
+}
+
+.project-scope h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* Individual scope items */
+.scope-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    justify-content: space-between;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(30px); /* Start with slight downward position */
+    transition: all 0.8s ease-in-out;
+}
+
+.scope-item.show {
+    opacity: 1;
+    transform: translateY(0); /* Move up to normal position */
+}
+
+/* Text content on left */
+.text-content {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+}
+
+.text-content h3 {
+    font-size: 1.8em;
+    color: #333;
+}
+
+.text-content p {
+    color: #666;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+/* Image content on right */
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Reverse the layout for alternating sections */
+.scope-item.reverse {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+    .scope-item {
+        flex-direction: column;
+    }
+
+    .scope-item.reverse {
+        flex-direction: column;
+    }
+
+    .image-content img {
+        margin-bottom: 20px;
+    }
+
+    .text-content {
+        text-align: center;
+    }
+}
+
+/* Scroll Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.technologies-section {
+    padding: 40px; /* Add padding around the section */
+    background-color: #f9f9f9; /* Optional: Light background for contrast */
+    text-align: left; /* Center align text */
+}
+
+.tech-cards {
+    display: flex; /* Use flexbox for card alignment */
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: center; /* Center the cards */
+    gap: 20px; /* Space between cards */
+}
+
+.tech-card {
+    background: #fff; /* Card background color */
+    border: 1px solid #ccc; /* Optional: border around the cards */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    width: 150px; /* Fixed width for cards */
+    text-align: center; /* Center align text and image */
+    position: relative; /* Allows for absolute positioning of child elements */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+    display: flex; /* Use flexbox to arrange children */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Space between the image and title */
+    height: 200px; /* Fixed height for cards */
+}
+
+.tech-card h4 {
+    margin-top: auto; /* Pushes the title to the bottom of the card */
+    margin-bottom: 10px; /* Space below the title */
+}
+
+.tech-card img {
+    max-width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Optional: add rounded corners to images */
+}
+
+.tech-card h4 {
+    margin-top: 10px; /* Space above the title */
+}
+
+.tech-card:hover {
+    transform: scale(1.05); /* Scale up card on hover */
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap');
+
+.design-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding: 100px 0;
+  font-family: 'Jost', sans-serif;
+}
+
+.timeline {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-empty {
+  flex: 1;
+}
+
+.timeline-middle {
+  position: relative;
+  background: #000000;
+  width: 3px;
+  height: 100%;
+}
+
+.timeline-circle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #000000;
+  transform: translateX(-50%);
+}
+
+.timeline-content {
+  background: #e6e6e6; /* Card background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  color: rgb(0, 0, 0);
+  padding: 1.5rem; /* Padding for content */
+  margin: 1rem 0; /* Space between items */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+  opacity: 0; /* Initially hidden */
+  transform: translateY(50px); /* Initially moved down */
+  animation: fadeSlideUp 1s ease forwards; /* Fade and slide-up animation */
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+}
+
+@media screen and (min-width: 768px) {
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr 3px 1fr;
+  }
+
+  .timeline-middle {
+    background: #000000;
+    grid-column: 2;
+  }
+
+  /* Alternating layout for timeline items */
+  .timeline-empty:nth-child(2n),
+  .timeline-middle:nth-child(2n) {
+    grid-column: 3;
+  }
+
+  .timeline-content:nth-child(2n+1) {
+    grid-column: 1;
+    text-align: right;
+  }
+
+  .timeline-content:nth-child(2n) {
+    grid-column: 3;
+  }
+
+  .timeline-circle {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Animation */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* Start from below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End in place */
+  }
+}
+
+/* Adding animation on scroll */
+.timeline-content {
+  visibility: hidden; /* Hidden until in view */
+}
+
+.timeline-content.active {
+  visibility: visible;
+  animation: fadeSlideUp 1s ease forwards; /* Add animation on active */
+}
+
+
+
+
+
+
+/* Team Section Styles */
+.team-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.team-title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.team-subtitle {
+    font-size: 28px;
+    font-weight: 500;
+    margin: 20px 0;
+    color: #444;
+}
+
+.team-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 80%;
+}
+
+.team-card {
+    width: 300px; /* Fixed width for each card */
+    margin: 20px; /* Space between cards */
+    padding: 15px; /* Padding inside the card */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    text-align: center; /* Center text inside card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+}
+
+.profile-image {
+    width: 100px; /* Fixed width for images */
+    height: 100px; /* Fixed height for images */
+    border-radius: 50%; /* Circular images */
+    object-fit: cover; /* Crop the image to fill the box */
+    margin-bottom: 10px; /* Space below the image *//
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Scroll Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.team-card:nth-child(1) { animation-delay: 0.2s; }
+.team-card:nth-child(2) { animation-delay: 0.4s; }
+.team-card:nth-child(3) { animation-delay: 0.6s; }
+.team-card:nth-child(4) { animation-delay: 0.8s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .team-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Downloads Section Styles */
+.downloads-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.downloads-title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.downloads-subtitle {
+    font-size: 28px;
+    font-weight: 500;
+    margin: 20px 0;
+    color: #444;
+}
+
+.downloads-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: left; /* Align text to the left */
+}
+
+.downloads-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Animation for list items */
+.downloads-list li {
+    display: flex;
+    justify-content: space-between; /* Space between name and link */
+    align-items: center; /* Center align items */
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd; /* Light border for cards */
+    border-radius: 5px; /* Rounded corners */
+    transition: background 0.3s ease, transform 0.3s ease; /* Transition for background and transform */
+    opacity: 0; /* Start hidden */
+    transform: translateY(10px); /* Start from a slightly lower position */
+    animation: fadeInUp 0.5s forwards; /* Call fadeInUp animation */
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1; /* End at full opacity */
+        transform: translateY(0); /* End at original position */
+    }
+}
+
+.downloads-list li:nth-child(1) { animation-delay: 0.1s; }
+.downloads-list li:nth-child(2) { animation-delay: 0.2s; }
+.downloads-list li:nth-child(3) { animation-delay: 0.3s; }
+.downloads-list li:nth-child(4) { animation-delay: 0.4s; }
+.downloads-list li:nth-child(5) { animation-delay: 0.5s; }
+.downloads-list li:nth-child(6) { animation-delay: 0.6s; }
+.downloads-list li:nth-child(7) { animation-delay: 0.7s; }
+.downloads-list li:nth-child(8) { animation-delay: 0.8s; }
+
+.downloads-list li:hover {
+    background-color: #f0f0f0; /* Light background on hover */
+    transform: translateY(-2px); /* Slightly raise on hover */
+}
+
+.document-name {
+    font-size: 18px; /* Size for document names */
+    color: #333; /* Color for document names */
+}
+
+.download-link {
+    text-decoration: none;
+    color: #007bff; /* Change to your preferred color */
+    display: flex;
+    align-items: center; /* Align items vertically */
+    transition: color 0.3s ease; /* Transition for color */
+}
+
+.download-link:hover {
+    color: #0056b3; /* Darker color on hover */
+}
+
+.download-icon {
+    width: 20px; /* Adjust icon size */
+    height: 20px;
+    margin-right: 5px; /* Space between icon and text */
+}
+
+
+.contact {
+    text-align: center; /* Center text */
+    padding: 50px 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact h2 {
+    font-size: 2rem; /* Larger font for the title */
+    margin-bottom: 20px;
+    color: #333; /* Darker color for better readability */
+}
+
+.contact p {
+    margin-bottom: 30px;
+    color: #666; /* Slightly muted color for paragraph text */
+}
+
+.form-container {
+    display: flex;
+    justify-content: center; /* Center the form horizontally */
+    align-items: center; /* Center the form vertically if needed */
+    margin: 0 auto; /* Center the container */
+    width: 100%;
+    max-width: 800px; /* Limit the width */
+}
+
+.contact iframe {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 50%; /* Full width */
+    height: 600px; /* Height of the form */
+    transition: transform 0.3s ease; /* Animation effect */
+}
+
+.contact iframe:hover {
+    transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+.contact a {
+    color: #F27121; /* Primary color for links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold links */
+}
+
+.contact a:hover {
+    text-decoration: underline; /* Underline on hover for emphasis */
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+    .hero p {
+        font-size: 1.2em;
+    }
+}
