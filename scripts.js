@@ -69,3 +69,18 @@ const observer = new IntersectionObserver(entries => {
 timelineItems.forEach(item => {
   observer.observe(item);
 });
+
+
+let currentIndex = 0; // Start with the first image
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+
+function showNextSlide() {
+    slides[currentIndex].classList.remove('active'); // Hide current slide
+    currentIndex = (currentIndex + 1) % totalSlides; // Move to the next slide
+    slides[currentIndex].classList.add('active'); // Show next slide
+    document.querySelector('.slider').style.transform = `translateX(-${currentIndex * 100}%)`; // Move the slider
+}
+
+// Automatically change the slide every 5 seconds
+setInterval(showNextSlide, 5000);

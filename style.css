@@ -105,24 +105,60 @@ body {
 
 /* Hero Section */
 .hero {
+    position: relative; /* Make position relative for absolute children */
     height: 100vh;
-    background-image: url('images/hero.jpeg'); 
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    overflow: hidden; /* Hide overflow for smooth sliding */
     color: #ff6f61;
-    opacity: 0; /* Start hidden */
-    animation: fadeIn 1s forwards; /* Fade-in animation */
 }
 
+/* Slider */
+.slider {
+    position: absolute; /* Positioning for absolute positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 1s ease; /* Smooth transition for sliding */
+}
+
+.slides {
+    display: flex; /* Align slides in a row */
+}
+
+.slide {
+    min-width: 100%; /* Each slide takes full width */
+    height: 100%; /* Full height */
+    display: flex; /* Flex for center aligning content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.slide img {
+    width: 100%; /* Responsive image */
+    height: 100%; /* Cover the slide */
+    object-fit: cover; /* Ensure it covers without stretching */
+}
+
+/* Existing hero content styles */
+.hero-content {
+    position: relative; /* Position relative for layering */
+    z-index: 1; /* Bring content above slider */
+    text-align: center; /* Center text */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100%; /* Take full height of the hero section */
+    padding: 0 20px; /* Optional: Add padding for mobile responsiveness */
+}
+
+
 .hero-title {
-    font-size: 2.5em;
+    text-align: center;
+    font-size: 4em;
     animation: slideInFromLeft 1s forwards; /* Slide-in animation */
-    opacity: 10; /* Start hidden */
+    opacity: 1; /* Adjust opacity */
     animation-delay: 0.3s; /* Delay for effect */
 }
 
@@ -130,7 +166,7 @@ body {
     font-size: 1.3em;
     color: #ffffff;
     animation: slideInFromRight 1s forwards; /* Slide-in animation */
-    opacity: 0; /* Start hidden */
+    opacity: 1; /* Adjust opacity */
     animation-delay: 0.5s; /* Delay for effect */
 }
 
@@ -144,16 +180,15 @@ body {
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
-    opacity: 0; /* Start hidden */
+    opacity: 1; /* Adjust opacity */
     animation: fadeIn 1s forwards; /* Fade-in animation */
     animation-delay: 0.7s; /* Delay for effect */
 }
 
-.cta-btn:hover{
+.cta-btn:hover {
     background-color: #ff6f61;
     color: #fff;
 }
-
 
 /* Keyframes for animations */
 @keyframes fadeIn {
@@ -183,6 +218,7 @@ body {
         opacity: 1; /* Fade in */
     }
 }
+
 
 /* Project Scope Section */
 .project-scope {
